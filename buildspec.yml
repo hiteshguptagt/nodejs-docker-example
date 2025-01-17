@@ -11,8 +11,8 @@ phases:
   pre_build:
     commands:
       - echo Retrieving authentication token and authenticating Docker client...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 486036348167.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=486036348167.dkr.ecr.us-east-1.amazonaws.com/node-app
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 024848451374.dkr.ecr.ap-south-1.amazonaws.com
+      - REPOSITORY_URI=024848451374.dkr.ecr.ap-south-1.amazonaws.com/node-app
       - IMAGE_TAG=latest
 
   build:
@@ -23,9 +23,9 @@ phases:
   post_build:
     commands:
       - echo Tagging the Docker image...
-      - docker tag node-app:latest 486036348167.dkr.ecr.us-east-1.amazonaws.com/node-app:latest
+      - docker tag node-app:latest 024848451374.dkr.ecr.ap-south-1.amazonaws.com/node-app:latest
       - echo Pushing Docker image to ECR...
-      - docker push 486036348167.dkr.ecr.us-east-1.amazonaws.com/node-app:latest
+      - docker push 024848451374.dkr.ecr.ap-south-1.amazonaws.com/node-app:latest
       - echo Image pushed successfully!
 
 artifacts:
